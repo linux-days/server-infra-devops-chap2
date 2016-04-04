@@ -10,17 +10,11 @@ dependencies:
     - |
       mkdir -p $HOME/.terraform
 
-      echo hogehoge1
-
       if [ -z "$(ls -A $HOME/.terraform/terraform_${TERRAFORM_VERSION}_linux_amd64.zip)" ]; then
-        echo hogehoge2
-
         cd $HOME/.terraform
         curl -LO https://releases.hashicorp.com/terraform/0.6.14/terraform_${TERRAFORM_VERSION}_linux_amd64.zip
         unzip -o terraform_${TERRAFORM_VERSION}_linux_amd64.zip
       fi
-
-      echo hogehoge3
 
     - sudo cp -fR $HOME/.terraform/* /usr/local/bin
 
@@ -28,7 +22,7 @@ test:
   pre:
     - terraform plan
     - terraform apply
-    - cp /etc/host .
+    - cp /etc/hosts .
     - sudo bash -c "cat hosts /tmp/hosts.txt | tee /etc/hosts"
   override:
     - bundle exec knife solo prepare root@webapp
