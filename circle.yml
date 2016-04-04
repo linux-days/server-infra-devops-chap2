@@ -9,7 +9,7 @@ dependencies:
   pre:
     - |
       mkdir -p $HOME/.terraform
-      if [-z "$(ls -A $HOME/.terraform/terraform_${TEERAFORM_VERSION}_linux_amd64.zip)" ]; then
+      if [-z "$(ls -A $HOME/.terraform/terraform_${TERRAFORM_VERSION}_linux_amd64.zip)" ]; then
         cd $HOME/.terraform
         curl -L0 https://releases.hashicorp.com/terraform/0.6.14/terraform_${TERRAFORM_VERSION}_linux_amd64.zip
         unzip -o terraform_${TERRAFORM_VERSION}_linux_amd64.zip
